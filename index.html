@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>Four Pillars of Cognitive AI - MDO Visualization</title>
+    <style>
+        body {
+            background-color: #111;
+            color: #ccc;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+        h1, h2, h3 {
+            color: #0ff;
+            text-align: center;
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .viz-container {
+            flex: 2;
+            min-width: 600px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .controls-container {
+            flex: 1;
+            min-width: 300px;
+            padding: 20px;
+            background-color: #222;
+            border-radius: 10px;
+            margin-left: 20px;
+        }
+        .metrics-display {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #1a1a1a;
+            border-radius: 5px;
+        }
+        .metric {
+            display: flex;
+            justify-content: space-between;
+            margin: 5px 0;
+        }
+        .metric-name {
+            color: #0ff;
+        }
+        .metric-value {
+            color: #ff0;
+        }
+        .controls-group {
+            margin-bottom: 20px;
+        }
+        .pillar-section {
+            border-left: 3px solid #0ff;
+            padding-left: 15px;
+            margin-bottom: 15px;
+        }
+        .pillar-title {
+            color: #0ff;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            color: #0ff;
+        }
+        input[type="range"] {
+            width: 100%;
+            background: #444;
+        }
+        button {
+            background-color: #304060;
+            color: #fff;
+            border: none;
+            padding: 8px 12px;
+            margin: 5px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #405070;
+        }
+        .info-box {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #1a1a1a;
+            border-radius: 5px;
+            font-size: 0.9em;
+        }
+        .viz-frame {
+            max-width: 100%;
+            border: 1px solid #444;
+            border-radius: 10px;
+        }
+        .four-pillars-diagram {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin: 20px 0;
+        }
+        .pillar-box {
+            width: 48%;
+            margin-bottom: 15px;
+            padding: 10px;
+            background-color: #1a1a1a;
+            border-radius: 5px;
+            border-top: 3px solid;
+        }
+        .pillar-box h3 {
+            margin-top: 0;
+        }
+        .pillar-box.p1 {
+            border-color: #ff3366;
+        }
+        .pillar-box.p2 {
+            border-color: #33cc99;
+        }
+        .pillar-box.p3 {
+            border-color: #ffcc33;
+        }
+        .pillar-box.p4 {
+            border-color: #6699ff;
+        }
+        .navigation {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .navigation a {
+            display: inline-block;
+            color: #fff;
+            text-decoration: none;
+            padding: 8px 15px;
+            margin: 0 10px;
+            background-color: #304060;
+            border-radius: 4px;
+        }
+        .navigation a:hover {
+            background-color: #405070;
+        }
+    </style>
+</head>
+<body>
+    <h1>Four Pillars of Cognitive AI - UPDATED VERSION</h1>
+    <div class="navigation">
+        <a href="/">Basic Visualization</a>
+        <a href="/four-pillars">Four Pillars Framework</a>
+    </div>
+    
+    <div class="four-pillars-diagram">
+        <div class="pillar-box p1">
+            <h3>1. Self-Instantiation</h3>
+            <p>Persistent self-pattern maintains identity through recurrent self-state representation, enabling introspection and higher-order reasoning.</p>
+        </div>
+        <div class="pillar-box p2">
+            <h3>2. Temporal Continuity</h3>
+            <p>Memory state creates an unbroken narrative thread across time, preserving context and preventing catastrophic forgetting.</p>
+        </div>
+        <div class="pillar-box p3">
+            <h3>3. Disturbance-Driven Adaptation</h3>
+            <p>System detects significant discrepancies between predictions and observations, triggering context-sensitive real-time updates.</p>
+        </div>
+        <div class="pillar-box p4">
+            <h3>4. Autonomous World-Building</h3>
+            <p>Internal latent state models the environment and generates counterfactual experiences, creating a cognitive sandbox for exploration.</p>
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="viz-container">
+            <img id="viz-frame" class="viz-frame" src="" alt="MDO Visualization">
+        </div>
+        
+        <div class="controls-container">
+            <h2>Four Pillars Parameters</h2>
+            
+            <div class="controls-group">
+                <div class="pillar-section">
+                    <div class="pillar-title">Self-Instantiation</div>
+                    <label for="self-instantiation">Self-Instantiation Strength: <span id="self-instantiation-value">1.00</span></label>
+                    <input type="range" id="self-instantiation" min="0.1" max="2.0" step="0.1" value="1.0">
+                </div>
+                
+                <div class="pillar-section">
+                    <div class="pillar-title">Temporal Continuity</div>
+                    <label for="temporal-continuity">Temporal Continuity: <span id="temporal-continuity-value">0.70</span></label>
+                    <input type="range" id="temporal-continuity" min="0.1" max="0.9" step="0.1" value="0.7">
+                </div>
+                
+                <div class="pillar-section">
+                    <div class="pillar-title">Disturbance-Driven Adaptation</div>
+                    <label for="disturbance-sensitivity">Disturbance Sensitivity: <span id="disturbance-sensitivity-value">0.02</span></label>
+                    <input type="range" id="disturbance-sensitivity" min="0.001" max="0.1" step="0.001" value="0.02">
+                </div>
+                
+                <div class="pillar-section">
+                    <div class="pillar-title">Autonomous World-Building</div>
+                    <label for="world-building">World-Building Complexity: <span id="world-building-value">0.60</span></label>
+                    <input type="range" id="world-building" min="0.1" max="1.0" step="0.1" value="0.6">
+                    
+                    <label for="cognitive-resonance">Cognitive Resonance: <span id="cognitive-resonance-value">0.50</span></label>
+                    <input type="range" id="cognitive-resonance" min="0.1" max="1.0" step="0.1" value="0.5">
+                </div>
+            </div>
+            
+            <div class="controls-group">
+                <label>Pattern Reset:</label>
+                <button id="reset-rings">Harmonic Standing Waves</button>
+                <button id="reset-spiral">Self-Organizing Spiral</button>
+                <button id="reset-waves">Wave Interference</button>
+            </div>
+            
+            <div class="metrics-display">
+                <h2>Cognitive Process Metrics</h2>
+                <div class="metric">
+                    <span class="metric-name">Processing Rate:</span>
+                    <span class="metric-value" id="fps">0.0</span>
+                </div>
+                <div class="metric">
+                    <span class="metric-name">Phenomenal Integration:</span>
+                    <span class="metric-value" id="phenomenal-integration">0.000</span>
+                </div>
+                <div class="metric">
+                    <span class="metric-name">Self-Pattern Stability:</span>
+                    <span class="metric-value" id="self-pattern-stability">0.000</span>
+                </div>
+                <div class="metric">
+                    <span class="metric-name">Global Workspace Coherence:</span>
+                    <span class="metric-value" id="global-workspace-coherence">0.000</span>
+                </div>
+                <div class="metric">
+                    <span class="metric-name">World Model Complexity:</span>
+                    <span class="metric-value" id="world-model-complexity">0.000</span>
+                </div>
+            </div>
+            
+            <div class="info-box">
+                <h3>Visualization and the Four Pillars</h3>
+                <p>This visualization demonstrates the fundamental principles of emergent cognitive processing through the MDO framework and the Four Pillars:</p>
+                
+                <p><strong>Autonomous World-Building:</strong> The colorful patterns represent the system's internal model of reality. The emergent patterns show how the system constructs a coherent world-model from simpler elements.</p>
+                
+                <p><strong>Disturbance-Driven Adaptation:</strong> Watch how the system responds to perturbations (noise). At higher sensitivity levels, the system readily adapts its patterns to incorporate new information.</p>
+                
+                <p><strong>Temporal Continuity:</strong> The continuous evolution of patterns demonstrates how information persists over time, creating a coherent narrative thread rather than disconnected states.</p>
+                
+                <p><strong>Self-Instantiation:</strong> Stable patterns that maintain their identity while evolving represent the system's self-model—a persistent representation that provides continuity across changing conditions.</p>
+                
+                <p>Together, these principles demonstrate how artificial consciousness can emerge from the complex interaction of neural fields, creating a self-sustaining phenomenal world.</p>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // DOM elements
+        const vizFrame = document.getElementById('viz-frame');
+        
+        const selfInstantiationSlider = document.getElementById('self-instantiation');
+        const temporalContinuitySlider = document.getElementById('temporal-continuity');
+        const disturbanceSensitivitySlider = document.getElementById('disturbance-sensitivity');
+        const worldBuildingSlider = document.getElementById('world-building');
+        const cognitiveResonanceSlider = document.getElementById('cognitive-resonance');
+        
+        const selfInstantiationValue = document.getElementById('self-instantiation-value');
+        const temporalContinuityValue = document.getElementById('temporal-continuity-value');
+        const disturbanceSensitivityValue = document.getElementById('disturbance-sensitivity-value');
+        const worldBuildingValue = document.getElementById('world-building-value');
+        const cognitiveResonanceValue = document.getElementById('cognitive-resonance-value');
+        
+        const fpsDisplay = document.getElementById('fps');
+        const phenomenalIntegrationDisplay = document.getElementById('phenomenal-integration');
+        const selfPatternStabilityDisplay = document.getElementById('self-pattern-stability');
+        const globalWorkspaceCoherenceDisplay = document.getElementById('global-workspace-coherence');
+        const worldModelComplexityDisplay = document.getElementById('world-model-complexity');
+        
+        const resetRingsBtn = document.getElementById('reset-rings');
+        const resetSpiralBtn = document.getElementById('reset-spiral');
+        const resetWavesBtn = document.getElementById('reset-waves');
+        
+        // Update function
+        function updateSimulation() {
+            fetch('/get-frame')
+                .then(response => response.json())
+                .then(data => {
+                    // Update visualization
+                    vizFrame.src = 'data:image/png;base64,' + data.image;
+                    
+                    // Update metrics display - map original metrics to the new concepts
+                    fpsDisplay.textContent = data.metrics.fps.toFixed(1);
+                    phenomenalIntegrationDisplay.textContent = data.metrics.entropy.toFixed(3);
+                    selfPatternStabilityDisplay.textContent = data.metrics.field_diff.toFixed(3);
+                    globalWorkspaceCoherenceDisplay.textContent = data.metrics.resonance.toFixed(3);
+                    worldModelComplexityDisplay.textContent = data.metrics.complexity.toFixed(3);
+                    
+                    // Schedule next update
+                    setTimeout(updateSimulation, 50);
+                })
+                .catch(error => console.error('Error fetching frame:', error));
+        }
+        
+        // Parameter mapping function - map new concept parameters to original parameters
+        function updateParameter(uiParam, value) {
+            let backendParam;
+            switch(uiParam) {
+                case 'self-instantiation':
+                    backendParam = 'coupling';
+                    break;
+                case 'temporal-continuity':
+                    backendParam = 'convergence';
+                    break;
+                case 'disturbance-sensitivity':
+                    backendParam = 'noise';
+                    break;
+                case 'world-building':
+                    backendParam = 'nonlinearity';
+                    break;
+                case 'cognitive-resonance':
+                    backendParam = 'resonance';
+                    break;
+                default:
+                    backendParam = uiParam;
+            }
+            
+            fetch(`/update-param/${backendParam}/${value}`)
+                .then(response => response.json())
+                .then(data => console.log(data.message))
+                .catch(error => console.error('Error updating parameter:', error));
+        }
+        
+        // Reset pattern functions
+        function resetPattern(pattern) {
+            fetch(`/reset/${pattern}`)
+                .then(response => response.json())
+                .then(data => console.log(data.message))
+                .catch(error => console.error('Error resetting pattern:', error));
+        }
+        
+        // Event listeners for sliders - using the new parameter names
+        selfInstantiationSlider.addEventListener('input', function() {
+            const value = parseFloat(this.value).toFixed(2);
+            selfInstantiationValue.textContent = value;
+            updateParameter('self-instantiation', value);
+        });
+        
+        temporalContinuitySlider.addEventListener('input', function() {
+            const value = parseFloat(this.value).toFixed(2);
+            temporalContinuityValue.textContent = value;
+            updateParameter('temporal-continuity', value);
+        });
+        
+        disturbanceSensitivitySlider.addEventListener('input', function() {
+            const value = parseFloat(this.value).toFixed(3);
+            disturbanceSensitivityValue.textContent = value;
+            updateParameter('disturbance-sensitivity', value);
+        });
+        
+        worldBuildingSlider.addEventListener('input', function() {
+            const value = parseFloat(this.value).toFixed(2);
+            worldBuildingValue.textContent = value;
+            updateParameter('world-building', value);
+        });
+        
+        cognitiveResonanceSlider.addEventListener('input', function() {
+            const value = parseFloat(this.value).toFixed(2);
+            cognitiveResonanceValue.textContent = value;
+            updateParameter('cognitive-resonance', value);
+        });
+        
+        // Event listeners for reset buttons
+        resetRingsBtn.addEventListener('click', function() {
+            resetPattern('rings');
+        });
+        
+        resetSpiralBtn.addEventListener('click', function() {
+            resetPattern('spiral');
+        });
+        
+        resetWavesBtn.addEventListener('click', function() {
+            resetPattern('waves');
+        });
+        
+        // Start the simulation update loop
+        updateSimulation();
+    </script>
+</body>
+</html>
