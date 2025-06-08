@@ -1,0 +1,18 @@
+# Core simulation dependencies
+numpy>=1.25.2
+scipy>=1.11.3
+matplotlib>=3.10.3
+
+# Web interface
+flask>=3.0.0
+
+# Advanced visualizations
+vispy>=0.12.1
+numba>=0.57.0
+
+# Optional for dashboard interface
+dash>=2.15.0
+plotly>=5.18.0
+
+# Production deployment
+gunicorn>=21.0.0
